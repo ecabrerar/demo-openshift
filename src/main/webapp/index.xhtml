@@ -12,7 +12,7 @@
 <title>Tablas JSF</title>
 </head>
 <h:body>
-
+  <h2>Demo Openshift</h2>
 	<h:form id="form">
 		<p:panel header="Informacion" id="pnDatos">
 			<p:panelGrid columns="2">
@@ -37,16 +37,16 @@
 			<p:ajax event="rowSelect" listener="#{tabla.datosSeleccion()}"
 				update="form:pnDatos"></p:ajax>
 
-			<p:column headerText="CODIGO"> 
+			<p:column headerText="Código"> 
 #{datos.iddatos}
 </p:column>
-			<p:column headerText="NOMBRE"> 
+			<p:column headerText="Nombre"> 
 #{datos.nombre}
 </p:column>
-			<p:column headerText="TELEFONO"> 
+			<p:column headerText="Teléfono"> 
 #{datos.telefono}
 </p:column>
-			<p:column headerText="SEXO"> 
+			<p:column headerText="Sexo"> 
 #{datos.sexo}
 </p:column>
 
