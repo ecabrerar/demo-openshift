@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Tablas JSF</title>
+</head>
+<h:body>
+
+	<h:form id="form">
+		<p:panel header="Informacion" id="pnDatos">
+			<p:panelGrid columns="2">
+				<label>ID:</label>
+				<p:inputText value="#{tabla.datosSeleccion.iddatos}"></p:inputText>
+				<label>NOMBRE:</label>
+				<p:inputText value="#{tabla.datosSeleccion.nombre}"></p:inputText>
+				<label>TELEFONO:</label>
+				<p:inputText value="#{tabla.datosSeleccion.telefono}"></p:inputText>
+				<label>SEXO:</label>
+				<p:inputText value="#{tabla.datosSeleccion.sexo}"></p:inputText>
+
+			</p:panelGrid>
+
+		</p:panel>
+
+
+		<p:dataTable value="#{tabla.lst}" var="datos"
+			selection="#{tabla.datosSeleccion}" selectionMode="single"
+			rowKey="#{datos.iddatos}">
+
+			<p:ajax event="rowSelect" listener="#{tabla.datosSeleccion()}"
+				update="form:pnDatos"></p:ajax>
+
+			<p:column headerText="CODIGO"> 
+#{datos.iddatos}
+</p:column>
+			<p:column headerText="NOMBRE"> 
+#{datos.nombre}
+</p:column>
+			<p:column headerText="TELEFONO"> 
+#{datos.telefono}
+</p:column>
+			<p:column headerText="SEXO"> 
+#{datos.sexo}
+</p:column>
+
+		</p:dataTable>
+
+
+	</h:form>
+</h:body>
+</html>
